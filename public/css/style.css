@@ -1,0 +1,229 @@
+*,
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --bg-primary: #eefddc;
+  --light-lime: #84cc16;
+  --pink-400: #f472b6;
+  --dark-green: #3f6212;
+  --bg-secondary: #22c55eba;
+  --text-green: #10b981;
+  --dark-yellow: #ca8a04;
+}
+
+body {
+  background-color: var(--bg-primary);
+}
+
+/* Navigtion Styles */
+header nav {
+  padding: 0.5rem 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header nav .nav-brand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  box-sizing: border-box;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+header nav .nav-brand .logo img {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+header nav .nav-brand .desc h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--dark-green);
+}
+
+header nav .nav-brand .desc h2 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--light-lime);
+}
+
+header nav .nav-link ul {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  list-style: none;
+}
+
+header nav .nav-link ul li {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+header nav .nav-link ul li a {
+  color: var(--text-green);
+  text-decoration: none;
+}
+
+header nav .nav-link ul li a:hover {
+  color: var(--light-lime);
+}
+
+header nav .nav-link ul li a.active {
+  color: var(--light-lime);
+}
+
+/* Main Styles */
+.container {
+  background: linear-gradient(to right, #22c55eba 73%, #facc15 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 5rem;
+  height: 32.6rem;
+  border-radius: 50px 50px 0 0;
+}
+
+.container-column {
+  background: linear-gradient(to right, #22c55eba 73%, #facc15 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 5rem;
+  height: 32.6rem;
+  border-radius: 50px 50px 0 0;
+}
+
+.container .desc h2 {
+  color: var(--dark-yellow);
+}
+
+.container .desc h1 span,
+.container .desc p,
+.container .desc a {
+  float: left;
+}
+
+.container .desc h1 {
+  color: var(--dark-green);
+  font-size: 3rem;
+  line-height: 3.3rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.container .desc a {
+  background-color: var(--dark-yellow);
+  padding: 0.6rem 2rem;
+  border-radius: 20px;
+  color: var(--bg-primary);
+  font-size: 1rem;
+  margin-top: 1.5rem;
+  text-decoration: none;
+  box-shadow: 1px 3px 23px rgba(22, 101, 52, 0.51);
+}
+
+.container .desc a:hover {
+  background-color: #e29c04;
+}
+
+.container .flat-design-home {
+  box-sizing: border-box;
+}
+
+.container .flat-design-home img {
+  transform: translateY(2.1rem);
+  margin-right: -3rem;
+  height: 29rem;
+}
+
+.container-column .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin-bottom: 1rem;
+}
+
+.container-column .header h1{
+  color: var(--dark-green);
+  font-weight: 600;
+}
+
+.container-column .header form input{
+  padding: .5rem 1rem;
+  outline: none;
+  border: none;
+  border-radius: .5rem 0 0 .5rem;
+  color: #64748b;
+  margin-right: -.5rem;
+}
+
+.container-column .header form button{
+  padding: .5rem 1rem;
+  border: none;
+  border-radius: 0 .5rem .5rem 0;
+  background-color: #e29c04;
+  color: var(--bg-primary);
+  cursor: pointer;
+}
+
+/* Table styles */
+main {
+  width: 90%;
+}
+
+main table thead {
+  background-color: #f59e0b;
+  color: var(--bg-primary);
+  font-weight: 300;
+}
+
+main table,
+td,
+th {
+  border-bottom: 0.1rem solid var(--dark-green);
+  padding: 1rem;
+}
+
+main table,
+td {
+  text-align: center;
+}
+
+main table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--dark-green);
+}
+
+main .add-petugas {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: var(--dark-yellow);
+  outline: none;
+  border: none;
+  margin-top: 1rem;
+  border-radius: 0.2rem;
+  color: var(--bg-primary);
+  font-size: 0.9rem;
+  cursor: pointer;
+  box-sizing: border-box;
+  text-decoration: none;
+  float: right;
+}
+
+main .add-petugas:hover {
+  background-color: #e29c04;
+}
