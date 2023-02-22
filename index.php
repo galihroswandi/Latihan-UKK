@@ -1,20 +1,21 @@
 <?php
-// memnulai session
+
+// memulai session
 session_start();
 
-if(!isset($_SESSION['id_petugas'])){
+if (!isset($_SESSION['id_petugas'])) {
     echo "
         <script>
-            alert('Anda belum login, Silahkan untuk login..');
-            window.location='login.php';           
-        </script>       
+            alert('Anda belum login, Silahkan login terlebih dahulu !');
+            window.location='login.php';
+        </script>
     ";
-}else{
-    include './template/header.php'; 
-    if(isset($_GET['p'])){
-        include './pages/'.$_GET['p'].'/index.php';
-    }else{
-        include './pages/home/index.php';
-    } 
-    include './template/footer.php';
+} else {
+    include_once './templates/header.php';
+    if (isset($_GET['p'])) {
+        include_once './pages/' . $_GET['p'] . '/index.php';
+    } else {
+        include_once './pages/home/index.php';
+    }
+    include_once './templates/footer.php';
 }
