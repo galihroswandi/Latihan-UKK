@@ -29,13 +29,22 @@
             </div>
             <div class="nav-link">
                 <ul>
-                    <li><a href="?p=home" class="active">Home</a></li>
-                    <li><a href="?p=petugas">Petugas</a></li>
-                    <li><a href="?p=home">Kelas</a></li>
-                    <li><a href="?p=home">SPP</a></li>
-                    <li><a href="?p=home">Siswa</a></li>
-                    <li><a href="?p=home">Pembayaran SPP</a></li>
-                    <li><a href="?p=home">Sign Out</a></li>
+                    <?php if ($_SESSION['level'] == 'admin') { ?>
+                        <li><a href="?p=home" class="active">Home</a></li>
+                        <li><a href="?p=petugas">Petugas</a></li>
+                        <li><a href="?p=kelas">Kelas</a></li>
+                        <li><a href="?p=spp">SPP</a></li>
+                        <li><a href="?p=siswa">Siswa</a></li>
+                        <li><a href="?p=pembayaran">Pembayaran SPP</a></li>
+                        <li><a onclick="return confirm('Apakah anda yakin ingin keluar ?')" href="logout.php">Sign Out</a></li>
+                    <?php } else if ($_SESSION['level'] == 'petugas') { ?>
+                        <li><a href="?p=pembayaran">Pembayaran SPP</a></li>
+                        <li><a href="?p=history-pembayaran">History Pembayaran SPP</a></li>
+                        <li><a onclick="return confirm('Apakah anda yakin ingin keluar ?')" href="logout.php">Sign Out</a></li>
+                    <?php } else { ?>
+                        <li><a href="?p=history-pembayaran">History Pembayaran SPP</a></li>
+                        <li><a onclick="return confirm('Apakah anda yakin ingin keluar ?')" href="logout.php">Sign Out</a></li>
+                    <?php } ?>
                 </ul>
             </div>
         </nav>

@@ -10,7 +10,23 @@ function getDataPetugas()
     return $data;
 };
 
-$data = getDataPetugas();
+function filterDataPetugas($keyword)
+{
+    $keyword = htmlspecialchars($_POST['search']);
+
+    $sql = "SELECT * FROM petugas WHERE username LIKE '%$keyword%' OR nama_petugas LIKE '%$keyword%' OR level LIKE '%$keyword%'";
+
+    $data = getData($sql);
+
+    return $data;
+}
+
+
+if (isset($_POST['btn_cari'])) {
+    $data = filterDataPetugas($_POST);
+} else {
+    $data = getDataPetugas();
+}
 ?>
 
 <div class="container-column">
@@ -18,7 +34,7 @@ $data = getDataPetugas();
         <h1>Data Petugas</h1>
         <form method="POST">
             <input type="search" name="search" id="search" placeholder="Cari Data">
-            <button type="submit">Cari</button>
+            <button type="submit" name="btn_cari">Cari</button>
         </form>
     </div>
     <main>
@@ -41,12 +57,12 @@ $data = getDataPetugas();
                         <td><?= $petugas['level'] ?></td>
                         <td>
                             <a href="?p=petugas/ubah&id_petugas=<?= $petugas['id_petugas'] ?>">Ubah</a> |
-                            <a href="?p=petugas/hapus&id_petugas=<?= $petugas['id_petugas'] ?>">Hapus</a>
+                            <a onclick="return confirm('Apakah anda yakin ingin menghapus ?')" href="?p=petugas/hapus&id_petugas=<?= $petugas['id_petugas'] ?>">Hapus</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
-        <a href="?p=petugas/tambah" class="add-petugas">Tambah Petugas</a>
+        <a href="?p=petugas/tambah" class="add">Tambah Petugas</a>
     </main>
 </div>

@@ -14,6 +14,9 @@ body {
   --bg-secondary: #22c55eba;
   --text-green: #10b981;
   --dark-yellow: #ca8a04;
+  --yellow-500: #e29c04;
+  --green-shadow: rgba(22, 101, 52, 0.51);
+  --gradasi-green-yellow: linear-gradient(to right, #22c55eba 73%, #facc15 100%);
 }
 
 body {
@@ -83,7 +86,7 @@ header nav .nav-link ul li a.active {
 
 /* Main Styles */
 .container {
-  background: linear-gradient(to right, #22c55eba 73%, #facc15 100%);
+  background: var(--gradasi-green-yellow);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -93,7 +96,7 @@ header nav .nav-link ul li a.active {
 }
 
 .container-column {
-  background: linear-gradient(to right, #22c55eba 73%, #facc15 100%);
+  background: var(--gradasi-green-yellow);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -131,11 +134,11 @@ header nav .nav-link ul li a.active {
   font-size: 1rem;
   margin-top: 1.5rem;
   text-decoration: none;
-  box-shadow: 1px 3px 23px rgba(22, 101, 52, 0.51);
+  box-shadow: 1px 3px 23px var(--green-shadow);
 }
 
 .container .desc a:hover {
-  background-color: #e29c04;
+  background-color: var(--yellow-500);
 }
 
 .container .flat-design-home {
@@ -156,24 +159,24 @@ header nav .nav-link ul li a.active {
   margin-bottom: 1rem;
 }
 
-.container-column .header h1{
+.container-column .header h1 {
   color: var(--dark-green);
   font-weight: 600;
 }
 
-.container-column .header form input{
-  padding: .5rem 1rem;
+.container-column .header form input {
+  padding: 0.5rem 1rem;
   outline: none;
   border: none;
-  border-radius: .5rem 0 0 .5rem;
+  border-radius: 0.5rem 0 0 0.5rem;
   color: #64748b;
-  margin-right: -.5rem;
+  margin-right: -0.5rem;
 }
 
-.container-column .header form button{
-  padding: .5rem 1rem;
+.container-column .header form button {
+  padding: 0.5rem 1rem;
   border: none;
-  border-radius: 0 .5rem .5rem 0;
+  border-radius: 0 0.5rem 0.5rem 0;
   background-color: #e29c04;
   color: var(--bg-primary);
   cursor: pointer;
@@ -208,7 +211,7 @@ main table {
   color: var(--dark-green);
 }
 
-main .add-petugas {
+main .add {
   display: inline-block;
   padding: 0.5rem 1rem;
   background-color: var(--dark-yellow);
@@ -224,6 +227,183 @@ main .add-petugas {
   float: right;
 }
 
-main .add-petugas:hover {
+main .add:hover {
   background-color: #e29c04;
+}
+
+div.form {
+  background-color: #f59e0b !important;
+  min-width: 40%;
+  max-width: 50%;
+  border-radius: 1rem;
+  box-shadow: 1px 2px 32px var(--text-green);
+  box-sizing: border-box;
+  padding: 2rem 3rem;
+  padding-bottom: 3rem;
+  margin-top: 1rem;
+}
+
+div.form > header > h1 {
+  color: var(--dark-green);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+div.form > form > .input-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+}
+
+div.form > form > .col > .input-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+}
+
+div.form > form > .input-field > label {
+  color: var(--dark-green);
+}
+
+div.form > form > .col > .input-field > label {
+  color: var(--dark-green);
+}
+
+div.form > form > .input-field > input,
+div.form > form > .input-field > select,
+div.form > form > .input-field > textarea {
+  border: none;
+  outline: none;
+  padding: .5rem 1rem;
+  font-size: 0.9rem;
+  background-color: var(--bg-primary);
+  color: var(--text-green);
+  border-radius: 0.5rem;
+}
+
+div.form > form > .input-field-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 1.5rem;
+  gap: 1.25rem;
+}
+
+div.form > form > .input-field-button > button {
+  background-color: var(--dark-green);
+  color: var(--bg-primary);
+  width: calc(100% / 2);
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+div.form > form > .input-field-button > button:hover {
+  box-shadow: 0 0 0.5rem var(--dark-yellow);
+}
+
+div.form > form > .input-field-button > a {
+  background-color: transparent;
+  border: 1px solid var(--dark-green);
+  padding: 0.3rem 1rem;
+  width: calc(100% / 2);
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: var(--dark-green);
+  text-align: center;
+}
+
+/* Form Grid */
+div.form-grid {
+  background-color: #f59e0b !important;
+  min-width: 30%;
+  border-radius: 1rem;
+  box-shadow: 1px 2px 32px var(--text-green);
+  box-sizing: border-box;
+  padding: 2rem 3rem;
+  padding-bottom: 3rem;
+  margin-top: 1rem;
+  max-width: 50%;
+}
+
+div.form-grid > header > h1 {
+  color: var(--dark-green);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+div.form-grid > form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 100%;
+  gap: 0.5rem;
+}
+
+div.form-grid > form > .input-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+}
+
+div.form-grid > form > .col {
+  width: calc(100% / 2.1);
+}
+
+div.form-grid > form > .col > .input-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+}
+
+div.form-grid > form > .col > .input-field > label {
+  color: var(--dark-green);
+}
+
+div.form-grid > form.grid > .col > .input-field > input,
+div.form-grid > form.grid > .col > .input-field > select,
+div.form-grid > form.grid > .col > .input-field > textarea {
+  border: none;
+  outline: none;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.9rem;
+  background-color: var(--bg-primary);
+  color: var(--text-green);
+  border-radius: 0.5rem;
+}
+
+div.form-grid > form.grid > .input-field-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 1.5rem;
+  gap: 1.25rem;
+}
+
+div.form-grid > form > .input-field-button > button {
+  background-color: var(--dark-green);
+  color: var(--bg-primary);
+  width: calc(100% / 2);
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+div.form-grid > form > .input-field-button > button:hover {
+  box-shadow: 0 0 0.5rem var(--dark-yellow);
+}
+
+div.form-grid > form > .input-field-button > a {
+  background-color: transparent;
+  border: 1px solid var(--dark-green);
+  padding: 0.3rem 1rem;
+  width: calc(100% / 2);
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: var(--dark-green);
+  text-align: center;
 }
