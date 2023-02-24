@@ -1,5 +1,6 @@
 <?php
 require_once './functions.php';
+session_start();
 
 function checkLogin($post)
 {
@@ -12,6 +13,10 @@ function checkLogin($post)
     $checkData = getData($sql);
 
     if (count($checkData) > 0) {
+
+        $_SESSION['id_petugas'] = $checkData[0]['id_petugas'];
+        $_SESSION['level'] = $checkData[0]['level'];
+
         echo "
             <script>
                 alert('Anda berhasil login, Selamat datang...');
