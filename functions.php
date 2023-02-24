@@ -1,7 +1,8 @@
 <?php
 
 
-function koneksi(){
+function koneksi()
+{
 
     $host = 'localhost';
     $user = 'root';
@@ -10,7 +11,7 @@ function koneksi(){
 
     $koneksi = mysqli_connect($host, $user, $pass, $db_name);
 
-    if(!$koneksi){
+    if (!$koneksi) {
         echo "Koneksi gagal";
         die;
     }
@@ -18,16 +19,43 @@ function koneksi(){
     return $koneksi;
 }
 
-function getData($sql){
+function getData($sql)
+{
 
     $koneksi = koneksi();
 
     $query = mysqli_query($koneksi, $sql);
 
     $data = [];
-    while($result = mysqli_fetch_array($query)){
+    while ($result = mysqli_fetch_array($query)) {
         $data[] = $result;
     }
 
     return $data;
+}
+
+function getSingleData($sql)
+{
+    $koneksi = koneksi();
+
+    $query = mysqli_query($koneksi, $sql);
+
+    $data = mysqli_fetch_array($query);
+
+    return $data;
+}
+
+function changeData($sql)
+{
+
+    $koneksi = koneksi();
+
+    $query = mysqli_query($koneksi, $sql);
+
+
+    if (!$query) {
+        return false;
+    }
+
+    return "Success";
 }
