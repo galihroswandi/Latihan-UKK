@@ -60,11 +60,11 @@ if (isset($_POST['btn_signin'])) {
 
 <body>
     <div class="container">
-        <img src="./public/assets/blur-effect/login/1.png" alt="Blur Color" class="blur-1">
+        <img src="./public/assets/login/1.png" alt="Blur Color" class="blur-1">
         <div class="header">
             <h1>Web App Pembayaran SPP</h1>
             <h2>SMK Muhammdiyah Tasikmalaya</h2>
-            <img src="./public/assets/blur-effect/login/2.png" alt="Blur Color">
+            <img src="./public/assets/login/2.png" alt="Blur Color">
         </div>
         <main>
             <form method="POST">
@@ -90,7 +90,7 @@ if (isset($_POST['btn_signin'])) {
                 </div>
             </form>
         </main>
-        <img src="./public/assets/blur-effect/login/3.png" alt="Blur Effect" class="blur-2">
+        <img src="./public/assets/login/3.png" alt="Blur Effect" class="blur-2">
     </div>
 </body>
 
