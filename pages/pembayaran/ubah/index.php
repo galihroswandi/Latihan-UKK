@@ -38,14 +38,14 @@ function updateData($post)
         echo "
             <script>
                 alert('Data gagal diubah !');
-                window.location='?p=pembayaran;
+                window.location='?p=pembayaran';
             </script>
         ";
     } else {
         echo "
             <script>
                 alert('Data berhasil diubah !');
-                window.location='?p=pembayaran;
+                window.location='?p=pembayaran';
             </script>
         ";
     }
@@ -94,11 +94,11 @@ $spp = getData("SELECT * FROM spp");
                 </div>
                 <div class="form-input">
                     <label for="tahun_dibayar">Tahun Dibayar</label>
-                    <input type="tahun_dibayar" name="tahun_dibayar" id="tahun_dibayar" autocomplete="off" required value="<?=$data['tahun_dibayar']?>">
+                    <input type="tahun_dibayar" name="tahun_dibayar" id="tahun_dibayar" autocomplete="off" required value="<?= $data['tahun_dibayar'] ?>">
                 </div>
                 <div class="form-input">
                     <label for="jumlah_bayar">Jumlah Bayar</label>
-                    <input type="text" name="jumlah_bayar" id="jumlah_bayar" autocomplete="off" required value="<?=$data['jumlah_bayar']?>">
+                    <input type="text" name="jumlah_bayar" id="jumlah_bayar" autocomplete="off" required value="<?= $data['jumlah_bayar'] ?>">
                 </div>
                 <div class="form-button">
                     <a href="?p=siswa">Batal</a>

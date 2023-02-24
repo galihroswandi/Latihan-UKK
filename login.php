@@ -27,9 +27,10 @@ function checkLogin($post)
         echo "
             <script>
                 alert('Username / Password Salah');
-                window.location='index.php?p=home';
+                window.location='login.php';
             </script>
         ";
+        return false;
     }
 }
 
