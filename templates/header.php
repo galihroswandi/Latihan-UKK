@@ -20,7 +20,7 @@
         <div class="nav-link">
             <ul>
                 <li><a href="?=home">Home</a></li>
-                <li><a href="?=home">Petugas</a></li>
+                <li><a href="?=petugas">Petugas</a></li>
                 <li><a href="?=home">Kelas</a></li>
                 <li><a href="?=home">Siswa</a></li>
                 <li><a href="?=home">SPP</a></li>
