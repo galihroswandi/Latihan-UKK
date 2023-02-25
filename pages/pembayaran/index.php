@@ -52,7 +52,7 @@ if (isset($_POST['btn_search'])) {
                             <td><?= $pembayaran['nominal'] ?></td>
                             <td>
                                 <a href="?p=pembayaran/ubah&id_pembayaran=<?= $pembayaran['id_pembayaran'] ?>">Ubah</a> |
-                                <a onclick="return confirm('Apakah anda yakin ingin menghapus ?')" href="?p=pembayaran/hapus&nisn=<?= $pembayaran['nisn'] ?>">Hapus</a> |
+                                <a onclick="return confirm('Apakah anda yakin ingin menghapus ?')" href="?p=pembayaran/hapus&id_pembayaran=<?= $pembayaran['id_pembayaran'] ?>">Hapus</a> |
                                 <a href="pages/pembayaran/struk.php?id_pembayaran=<?= $pembayaran['id_pembayaran'] ?>">Struk</a>
                             </td>
                         </tr>
