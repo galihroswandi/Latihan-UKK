@@ -31,3 +31,29 @@ function getData($sql)
 
     return $data;
 }
+
+function actionData($sql)
+{
+
+    $koneksi = koneksi();
+
+    $query = mysqli_query($koneksi, $sql);
+
+    if (!$query) {
+        return false;
+    }
+
+    return "Ok";
+}
+
+
+function getSingleData($sql)
+{
+    $koneksi = koneksi();
+
+    $query = mysqli_query($koneksi, $sql);
+
+    $data = mysqli_fetch_array($query);
+
+    return $data;
+}

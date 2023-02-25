@@ -1,4 +1,4 @@
-@import "./partials/main.css";
+@import "./partials/variables.css";
 
 body {
   background-color: var(--bg-primary);

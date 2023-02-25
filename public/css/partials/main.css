@@ -1,15 +1,119 @@
-*,
-html,
+@import "./variables.css";
+
 body {
-  margin: 0;
-  padding: 0;
-  font-family: "Poppins", sans-serif;
+  background-color: var(--bg-primary);
 }
 
-:root {
-  --bg-primary: #ecf1f9;
-  --blue-900: #1e3a8a;
-  --blue-800: #1e40af;
-  --slate-700: #334155;
-  --blue-600: #0284c7;
+div.container {
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: calc(100vh - 120px);
+  margin-top: 5rem;
+}
+
+div.container > div.table-wrapper {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 0.1rem solid var(--blue-600);
+  border-radius: 0.5rem;
+  padding: 1rem 3rem;
+  min-width: 75%;
+}
+
+div.container > div.table-wrapper > div.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0.5rem;
+}
+
+div.container > div.table-wrapper > div.header > h1 {
+  color: var(--blue-800);
+  font-size: 2rem;
+}
+
+div.container > div.table-wrapper > div.header > div.search > form {
+  display: flex;
+  align-items: center;
+}
+
+div.container > div.table-wrapper > div.header > div.search > form > input {
+  padding: 0.5rem 1rem;
+  background-color: var(--bg-primary);
+  border: none;
+  outline: none;
+  border: 0.1rem solid var(--blue-800);
+  border-radius: 0.8rem 0 0 0.8rem;
+  font-size: 1rem;
+  color: var(--text-slate-700);
+}
+
+div.container > div.table-wrapper > div.header > div.search > form > button {
+  padding: 0.35rem 0.9rem;
+  border: none;
+  background-color: var(--blue-800);
+  color: #fff;
+  border-radius: 0 0.8rem 0.8rem 0;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+div.container > .table-wrapper > main > table {
+  border-collapse: collapse;
+  border: 0.1rem solid var(--blue-800);
+  margin-top: 2rem;
+  border-radius: 0.5rem;
+}
+
+div.container > .table-wrapper > main {
+  padding: 0 1rem;
+}
+
+div.container > .table-wrapper > main > table > thead > tr > th,
+td {
+  border-bottom: 0.1rem solid var(--blue-800);
+  border-right: 0.1rem solid var(--blue-800);
+}
+
+div.container > .table-wrapper > main > table > thead > tr > th {
+  padding: 1rem 2rem;
+  background-color: var(--blue-600);
+  color: #fff;
+}
+
+div.container > .table-wrapper > main > table > tbody > tr > td {
+  padding: 0.5rem 1rem;
+  color: var(--text-slate-700);
+  font-size: 1rem;
+}
+
+div.container > .table-wrapper > main > div.link {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+div.container > .table-wrapper > main > div.link > a {
+  background-color: var(--blue-800);
+  color: #fff;
+  border-radius: 0.8rem;
+  padding: 0.7rem 1.5rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+div.container > .table-wrapper > main > div.link > a:nth-child(1) {
+  justify-self: start;
+}
+
+div.container > .table-wrapper > main > div.link > a:nth-child(2) {
+  justify-self: end;
 }

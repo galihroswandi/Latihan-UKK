@@ -2,13 +2,13 @@
 require_once './functions.php';
 
 if (!isset($_POST['btn_search'])) {
-    $sql = "SELECT * FROM petugas";
+    $sql = "SELECT * FROM pembayaran JOIN siswa ON pembayaran.nisn = siswa.nisn JOIN spp ON pembayaran.id_spp = spp.id_spp";
 
     $data = getData($sql);
 } else {
     $keyword = htmlspecialchars($_POST['search_value']);
 
-    $sql = "SELECT * FROM petugas WHERE username LIKE '%$keyword%' OR nama_petugas  LIKE '%$keyword%' OR level LIKE '%$keyword%'";
+    $sql = "SELECT * FROM pembayaran WHERE tgl_bayar LIKE '%$keyword%' OR jumlah_bayar  LIKE '%$keyword%' OR tahun_dibayar LIKE '%$keyword%'";
 
     $data = getData($sql);
 }
@@ -18,7 +18,7 @@ if (!isset($_POST['btn_search'])) {
 <div class="container">
     <div class="table-wrapper">
         <div class="header">
-            <h1>Data Petugas</h1>
+            <h1>Data Pembayaran SPP</h1>
             <div class="search">
                 <form method="POST">
                     <input type="search" name="search_value" id="search_valued" autocomplete="off">
@@ -34,36 +34,42 @@ if (!isset($_POST['btn_search'])) {
             <table width="100%">
                 <thead>
                     <tr>
-                        <th>Username</th>
-                        <th>Nama Lengkap</th>
-                        <th>Level</th>
+                        <th>Tahun SPP</th>
+                        <th>Tahun Dibayar</th>
+                        <th>Bulan Dibayar</th>
+                        <th>Tanggal</th>
+                        <th>Nama Siswa</th>
+                        <th>Nominal</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($data as $petugas) : ?>
+                    <?php foreach ($data as $pembayaran) : ?>
                         <tr>
-                            <td><?= $petugas['username'] ?></td>
-                            <td><?= $petugas['nama_petugas'] ?></td>
-                            <td><?= $petugas['level'] ?></td>
-                            <td><a href="?p=petugas/ubah&id_petugas=<?= $petugas['id_petugas'] ?>">Ubah</a> | <a onclick="return confirm('Apakah anda yakin ingin menghapus ?')" href="?p=petugas/hapus&id_petugas=<?= $petugas['id_petugas'] ?>">Hapus</a></td>
+                            <td><?= $pembayaran['tahun'] ?></td>
+                            <td><?= $pembayaran['tahun_dibayar'] ?></td>
+                            <td><?= $pembayaran['bln_dibayar'] ?></td>
+                            <td><?= $pembayaran['tgl_bayar'] ?></td>
+                            <td><?= $pembayaran['nama'] ?></td>
+                            <td>Rp. <?= $pembayaran['nominal'] ?></td>
+                            <td><a href="?p=pembayaran/ubah&id_pembayaran=<?= $pembayaran['id_pembayaran'] ?>">Ubah</a> | <a onclick="return confirm('Apakah anda yakin ingin menghapus ?')" href="?p=pembayaran/hapus&id_pembayaran=<?= $pembayaran['id_pembayaran'] ?>">Hapus</a> | <a href="./pages/pembayaran/nota.php?id_pembayaran=<?= $pembayaran['id_pembayaran'] ?>">Nota</a></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
             <div class="link">
-                <a href="./pages/petugas/print.php"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <a href="./pages/pembayaran/print.php"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M11 21C16.5228 21 21 16.5228 21 11C21 5.47715 16.5228 1 11 1C5.47715 1 1 5.47715 1 11C1 16.5228 5.47715 21 11 21Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                         <path d="M11 7V15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                         <path d="M7 11H15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                     Download PDF</a>
-                <a href="?p=petugas/tambah"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <a href="?p=pembayaran/tambah"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M11 21C16.5228 21 21 16.5228 21 11C21 5.47715 16.5228 1 11 1C5.47715 1 1 5.47715 1 11C1 16.5228 5.47715 21 11 21Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                         <path d="M11 7V15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                         <path d="M7 11H15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
-                    Tambah Petugas</a>
+                    Tambah pembayaran</a>
             </div>
         </main>
     </div>

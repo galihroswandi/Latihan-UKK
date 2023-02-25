@@ -2,13 +2,13 @@
 require_once './functions.php';
 
 if (!isset($_POST['btn_search'])) {
-    $sql = "SELECT * FROM petugas";
+    $sql = "SELECT * FROM kelas";
 
     $data = getData($sql);
 } else {
     $keyword = htmlspecialchars($_POST['search_value']);
 
-    $sql = "SELECT * FROM petugas WHERE username LIKE '%$keyword%' OR nama_petugas  LIKE '%$keyword%' OR level LIKE '%$keyword%'";
+    $sql = "SELECT * FROM kelas WHERE nama_kelas LIKE '%$keyword%' OR kompetensi_keahlian LIKE '%$keyword%'";
 
     $data = getData($sql);
 }
@@ -18,7 +18,7 @@ if (!isset($_POST['btn_search'])) {
 <div class="container">
     <div class="table-wrapper">
         <div class="header">
-            <h1>Data Petugas</h1>
+            <h1>Data Kelas</h1>
             <div class="search">
                 <form method="POST">
                     <input type="search" name="search_value" id="search_valued" autocomplete="off">
@@ -34,36 +34,34 @@ if (!isset($_POST['btn_search'])) {
             <table width="100%">
                 <thead>
                     <tr>
-                        <th>Username</th>
-                        <th>Nama Lengkap</th>
-                        <th>Level</th>
+                        <th>Kelas</th>
+                        <th>Kompetensi Keahlian</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($data as $petugas) : ?>
+                    <?php foreach ($data as $kelas) : ?>
                         <tr>
-                            <td><?= $petugas['username'] ?></td>
-                            <td><?= $petugas['nama_petugas'] ?></td>
-                            <td><?= $petugas['level'] ?></td>
-                            <td><a href="?p=petugas/ubah&id_petugas=<?= $petugas['id_petugas'] ?>">Ubah</a> | <a onclick="return confirm('Apakah anda yakin ingin menghapus ?')" href="?p=petugas/hapus&id_petugas=<?= $petugas['id_petugas'] ?>">Hapus</a></td>
+                            <td><?= $kelas['nama_kelas'] ?></td>
+                            <td><?= $kelas['kompetensi_keahlian'] ?></td>
+                            <td><a href="?p=kelas/ubah&id_kelas=<?= $kelas['id_kelas'] ?>">Ubah</a> | <a onclick="return confirm('Apakah anda yakin ingin menghapus ?')" href="?p=kelas/hapus&id_kelas=<?= $kelas['id_kelas'] ?>">Hapus</a></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
             <div class="link">
-                <a href="./pages/petugas/print.php"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <a href="./pages/kelas/print.php"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M11 21C16.5228 21 21 16.5228 21 11C21 5.47715 16.5228 1 11 1C5.47715 1 1 5.47715 1 11C1 16.5228 5.47715 21 11 21Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                         <path d="M11 7V15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                         <path d="M7 11H15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                     Download PDF</a>
-                <a href="?p=petugas/tambah"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <a href="?p=kelas/tambah"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M11 21C16.5228 21 21 16.5228 21 11C21 5.47715 16.5228 1 11 1C5.47715 1 1 5.47715 1 11C1 16.5228 5.47715 21 11 21Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                         <path d="M11 7V15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                         <path d="M7 11H15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
-                    Tambah Petugas</a>
+                    Tambah kelas</a>
             </div>
         </main>
     </div>
