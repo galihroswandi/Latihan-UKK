@@ -1,5 +1,32 @@
+@import "./partials/main.css";
+
 body {
   background-color: var(--bg-primary);
+}
+
+.login-wrapper {
+  position: relative;
+}
+
+.login-wrapper > img.blur-color-1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.login-wrapper > img.blur-color-2 {
+  position: absolute;
+  top: 5rem;
+  right: 0;
+  z-index: -1;
+}
+
+.login-wrapper > img.blur-color-3 {
+  position: absolute;
+  bottom: 0;
+  left: 30%;
+  z-index: -1;
 }
 
 .container {
@@ -24,11 +51,12 @@ body {
 }
 
 .container > main {
-  background-color: #fff;
-  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 2rem 2.5rem;
   box-shadow: 0 0 0.1rem var(--blue-900);
   border-radius: 0.5rem;
-  margin-right: 5rem;
+  margin-right: 6rem;
+  min-width: 16rem;
 }
 
 .container > main > form > div.form-input {
@@ -40,4 +68,38 @@ body {
 .container > main > form > div.form-input > label {
   color: var(--blue-800);
   font-size: 1rem;
+}
+
+.container > main > form > div.form-input > input,
+select {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: var(--blue-600);
+  outline: none;
+  border: 0.1rem solid var(--blue-900);
+  background-color: var(--bg-primary);
+  border-radius: 0.5rem;
+  margin-top: 0.3rem;
+}
+
+.container > main > form > div.form-input > button {
+  padding: 0.6rem 2rem;
+  background-color: var(--blue-800);
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.container > main > form > div.form-input > a {
+  color: var(--blue-600);
+  text-decoration: none;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.container > main > form > div.form-input > a:hover {
+  text-decoration: underline;
 }

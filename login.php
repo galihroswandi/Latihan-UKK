@@ -55,34 +55,40 @@ if (isset($_POST['btn_signin'])) {
 </head>
 
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>Web App Pembayaran SPP</h1>
-            <h2>SMK Muhammdiyah Tasikmalaya</h2>
+    <div class="login-wrapper">
+        <img src="./public/assets/petugas/blur-1.png" alt="Blur Color" class="blur-color-1">
+        <div class="container">
+            <div class="header">
+                <h1>Web App Pembayaran SPP</h1>
+                <h2>SMK Muhammdiyah Tasikmalaya</h2>
+            </div>
+            <main>
+                <form method="POST">
+                    <div class="form-input">
+                        <label for="username">Username</label>
+                        <input type="text" name="username" id="username" autocomplete="off" required>
+                    </div>
+                    <div class="form-input">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password" autocomplete="off" required>
+                    </div>
+                    <div class="form-input">
+                        <label for="level">Level</label>
+                        <select name="level" id="level">
+                            <option value="null">-- Pilih Level --</option>
+                            <option value="admin">Admin</option>
+                            <option value="petugas">Petugas</option>
+                        </select>
+                    </div>
+                    <div class="form-input">
+                        <button type="submit" name="btn_signin">Sign In</button>
+                        <a href="#">Login sebagai siswa</a>
+                    </div>
+                </form>
+            </main>
         </div>
-        <main>
-            <form method="POST">
-                <div class="form-input">
-                    <label for="username">Username</label>
-                    <input type="text" name="username" id="username" autocomplete="off" required>
-                </div>
-                <div class="form-input">
-                    <label for="password">Password</label>
-                    <input type="password" name="password" id="password" autocomplete="off" required>
-                </div>
-                <div class="form-input">
-                    <label for="level">Level</label>
-                    <select name="level" id="level">
-                        <option value="null">-- Pilih Level --</option>
-                        <option value="admin">Admin</option>
-                        <option value="petugas">Petugas</option>
-                    </select>
-                </div>
-                <div class="form-input">
-                    <button type="submit" name="btn_signin">Sign In</button>
-                </div>
-            </form>
-        </main>
+        <img src="./public/assets/petugas/blur-2.png" alt="Blur Color" class="blur-color-2">
+        <img src="./public/assets/petugas/blur-3.png" alt="Blur Color" class="blur-color-3">
     </div>
 </body>
 
