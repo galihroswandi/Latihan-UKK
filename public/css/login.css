@@ -15,96 +15,45 @@ body {
 }
 
 body {
-  background: var(--bg-primary);
+  background-color: var(--bg-primary);
 }
 
 .container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  justify-content: center;
+  padding: 0 5rem;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  min-height: 100%;
-  padding-inline: 32px;
-  position: relative;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  gap: 1rem;
 }
 
-div.container > img.blur-1 {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-div.container > img.blur-2 {
-  position: absolute;
-  right: 0;
-  z-index: -1;
-}
-
-div.header {
-  margin: auto;
-  position: relative;
-}
-
-div.header > img {
-  position: absolute;
-  left: 5.5rem;
-}
-
-div.header > h1 {
+.container > .header > h1 {
   color: var(--blue-900);
-  font-size: 2.5rem;
+  font-size: 3rem;
 }
 
-div.header > h2 {
-  color: var(--blue-800);
-  font-size: 1.5rem;
+.container > .header > h2 {
+  color: var(--blue-600);
+  font-size: 2rem;
   font-weight: 400;
 }
 
-main {
-  margin: auto;
-  margin-top: 8rem;
+.container > main {
   background-color: #fff;
-  padding: 2rem 2.5rem;
+  padding: 2rem;
+  box-shadow: 0 0 0.1rem var(--blue-900);
   border-radius: 0.5rem;
-  min-width: 300px;
-  min-height: 320px;
+  margin-right: 5rem;
 }
 
-main > form > .input-field {
+.container > main > form > div.form-input {
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
   margin-bottom: 0.8rem;
 }
 
-main > form > .input-field > label {
-  font-size: 1rem;
-  color: var(--blue-900);
-}
-
-main > form > .input-field > input,
-select {
-  padding: 0.5rem 1rem;
-  font-size: .9rem;
+.container > main > form > div.form-input > label {
   color: var(--blue-800);
-  background-color: #e2e8f0;
-  border: none;
-  outline: none;
-  border-radius: 0.2rem;
-}
-
-main > form > .input-field > button {
-  margin-top: 2rem;
-  padding: 0.5rem 1.5rem;
-  cursor: pointer;
-  background-color: var(--blue-800);
-  color: #fff;
-  border: none;
-  outline: none;
-  border-radius: 0.5rem;
-}
-
-main > form > .input-field > button:hover {
-  background-color: var(--blue-600);
+  font-size: 1rem;
 }
