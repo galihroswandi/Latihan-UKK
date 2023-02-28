@@ -1,6 +1,6 @@
 <?php
-require_once './../../functions.php';
-$data = getData("SELECT * FROM siswa JOIN kelas ON siswa.id_kelas = kelas.id_kelas JOIN spp ON siswa.id_spp = spp.id_spp");
+require './../../functions.php';
+$data = getData("SELECT * FROM siswa JOIN kelas ON siswa.id_kelas = kelas.id_kelas JOIN spp ON siswa.id_spp = spp.id_spp ");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,59 +9,60 @@ $data = getData("SELECT * FROM siswa JOIN kelas ON siswa.id_kelas = kelas.id_kel
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Petugas | Cetak</title>
+    <title>Pembayaran SPP | Print</title>
     <style>
         @import './../../public/css/partials/variables.css';
 
-        div.print {
-            padding: .5rem 1rem;
+        body {
+            background-color: #fff;
         }
 
         table {
             border-collapse: collapse;
             border: 0.1rem solid var(--blue-800);
+            margin-inline: auto;
             margin-top: 2rem;
-            border-radius: 0.5rem;
-        }
-
-        div.container>.table-wrapper>main {
-            padding: 0 1rem;
-        }
-
-        table>thead>tr>th,
-        td {
-            border-bottom: 0.1rem solid var(--blue-800);
-            border-right: 0.1rem solid var(--blue-800);
         }
 
         table>thead>tr>th {
-            padding: 1rem 2rem;
-            background-color: var(--blue-600);
-            color: #fff;
+            padding: 1rem;
+            border-right: 0.1rem solid var(--blue-800);
+            border-bottom: 0.1rem solid var(--blue-800);
+            background-color: var(--bg-primary);
+            color: var(--blue-900);
+            font-size: 1.12rem;
         }
 
         table>tbody>tr>td {
-            padding: 0.5rem 1rem;
-            color: var(--text-slate-700);
-            font-size: 1rem;
+            padding: 0.7rem;
+            border-right: 0.1rem solid var(--blue-800);
+            border-bottom: 0.1rem solid var(--blue-800);
+            font-size: 1.1rem;
+            color: var(--slate-700);
         }
 
-        a.back {
-            display: inline-block;
-            margin-left: 1rem;
+        .container{
+            width: 100%;
+            margin-top: 2rem;
+        }
+
+        .container>a {
             font-size: 2rem;
-            color: var(--blue-600);
+            text-decoration: none;
+            margin-left: 3rem;
         }
 
-        a.back:hover {
-            color: var(--text-slate-700);
+        .container>h1{
+            color: var(--blue-900);
+            text-align: center;
         }
     </style>
 </head>
 
 <body>
-    <div class="print">
-        <table width="100%">
+    <div class="container">
+        <h1>Data Siswa</h1>
+        <table width="85%">
             <thead>
                 <tr>
                     <th>NISN</th>
@@ -83,9 +84,8 @@ $data = getData("SELECT * FROM siswa JOIN kelas ON siswa.id_kelas = kelas.id_kel
                 <?php endforeach; ?>
             </tbody>
         </table>
+        <a href="../../index.php?p=siswa">&laquo;</a>
     </div>
-
-    <a href="./../../index.php?p=siswa" class="back">&laquo;</a>
     <script>
         window.print();
     </script>

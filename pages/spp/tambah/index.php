@@ -3,55 +3,49 @@ require_once './functions.php';
 
 function tambahData($post)
 {
+
     $tahun = htmlspecialchars($post['tahun']);
     $nominal = htmlspecialchars($post['nominal']);
 
     $sql = "INSERT INTO spp VALUES('', '$tahun', '$nominal')";
 
-    $insertData = actionData($sql);
+    $insert = changeData($sql);
 
-    if (!$insertData) {
+    if (!$insert) {
         echo "
             <script>
-                alert('Data gagal ditambahkan !');
-                window.location='?p=spp';
+                alert('Data gagal ditambahkan !, Error Code : " . $insert . "');
             </script>
         ";
     } else {
         echo "
-        <script>
-            alert('Data berhasil ditambahkan !');
-            window.location='?p=spp';
-        </script>
-    ";
+            <script>
+                alert('Data berhasil ditambahkan !');
+                window.location='?p=spp';
+            </script>
+        ";
     }
 }
 
-if (isset($_POST['btn_tambah'])) {
+if (isset($_POST['btn_simpan'])) {
     tambahData($_POST);
 }
-
 ?>
-<div class="container">
-    <div class="form-wrapper">
-        <div class="form-header">
-            <h1>Input Data SPP</h1>
+
+<div class="tambah-wrapper">
+    <form method="POST">
+        <h1>Input Data SPP</h1>
+        <div class="form-label">
+            <label for="tahun">Tahun</label>
+            <input type="text" name="tahun" id="tahun" placeholder="Masukan Tahun" autocomplete="off" required>
         </div>
-        <main>
-            <form method="POST">
-                <div class="form-label">
-                    <label for="tahun">Tahun</label>
-                    <input type="text" placeholder="Masukan Tahun" name="tahun" id="tahun" autocomplete="off" required>
-                </div>
-                <div class="form-label">
-                    <label for="nominal">Nominal</label>
-                    <input type="text" placeholder="Masukan nominal" name="nominal" id="nominal" autocomplete="off" required>
-                </div>
-                <div class="form-label button">
-                    <a href="?p=spp">Batal</a>
-                    <button type="submit" name="btn_tambah">Simpan</button>
-                </div>
-            </form>
-        </main>
-    </div>
+        <div class="form-label">
+            <label for="nominal">Nominal</label>
+            <input type="text" name="nominal" id="nominal" placeholder="Masukan Nominal" autocomplete="off" required>
+        </div>
+        <div class="form-label button" style="display: flex;">
+            <a href="?p=spp">Batal</a>
+            <button type="submit" name="btn_simpan">Simpan</button>
+        </div>
+    </form>
 </div>

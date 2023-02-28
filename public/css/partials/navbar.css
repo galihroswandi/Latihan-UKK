@@ -1,49 +1,54 @@
 @import "./variables.css";
 
-nav {
-  background-color: rgba(255, 255, 255, 0.8);
-  border-bottom: 0.1rem solid var(--blue-800);
-  width: 100%;
+div.nav-wrapper {
+  padding: 1rem 3rem;
   box-sizing: border-box;
-  padding: 0.5rem 5rem;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(2.5rem);
+  box-shadow: 0.2rem 0 0.1rem var(--blue-900);
+  width: 100%;
+  position: fixed;
+  z-index: 2;
+}
+
+nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
-  top: 0;
 }
 
 nav > .nav-brand {
   display: flex;
-  justify-content: left;
   align-items: center;
-  gap: 0.5rem;
-  padding: .7rem 0;
+  gap: 1rem;
 }
 
 nav > .nav-brand > .desc > h1 {
   color: var(--blue-800);
-  font-size: 2rem;
+  font-size: 1.7rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
 }
 
-nav > .nav-brand > .desc > h3 {
+nav > .nav-brand > .desc > p {
   color: var(--blue-600);
-  font-weight: 400;
+  font-size: 1.1rem;
 }
 
-nav>.nav-link>ul{
+nav > .nav-link > ul {
   display: flex;
   align-items: center;
   gap: 2rem;
   list-style: none;
+  margin-right: 1.5rem;
 }
 
-nav>.nav-link>ul>li>a{
+nav > .nav-link > ul > li > a {
   text-decoration: none;
+  font-size: 1rem;
   color: var(--blue-600);
 }
 
-nav>.nav-link>ul>li>a.active{
-  color: var(--blue-800);
-  font-weight: 500;
+nav > .nav-link > ul > li > a.active {
+  color: var(--blue-900);
 }

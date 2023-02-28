@@ -1,72 +1,64 @@
 <?php
 require_once './functions.php';
 
-// cek jika tidak ada id spp
 if (!isset($_GET['id_spp'])) {
-    echo "
-        <script>
-            window.location='?p=spp';
-        </script>
-    ";
-    return false;
+    echo "<script>window.location='?p=spp';</script>";
+} else {
+
+    // get single data
+    $sql = "SELECT * FROM spp WHERE id_spp='{$_GET['id_spp']}'";
+
+    $data = getSingleData($sql);
 }
 
-function ubahData($post)
+function tambahData($post)
 {
+
     $tahun = htmlspecialchars($post['tahun']);
     $nominal = htmlspecialchars($post['nominal']);
 
-    $sql = "UPDATE spp SET 
-            tahun = '$tahun',
-            nominal = '$nominal' WHERE id_spp = '{$_GET['id_spp']}'
+    $sql = "UPDATE spp SET
+        tahun='$tahun',
+        nominal='$nominal' WHERE id_spp='{$_GET['id_spp']}'
     ";
 
-    $insertData = actionData($sql);
+    $insert = changeData($sql);
 
-    if (!$insertData) {
+    if (!$insert) {
         echo "
             <script>
-                alert('Data gagal diubah !');
-                window.location='?p=spp';
+                alert('Data gagal diubah !, Error Code : " . $insert . "');
             </script>
         ";
     } else {
         echo "
-        <script>
-            alert('Data berhasil diubah !');
-            window.location='?p=spp';
-        </script>
-    ";
+            <script>
+                alert('Data berhasil diubah !');
+                window.location='?p=spp';
+            </script>
+        ";
     }
 }
 
-$data = getSingleData("SELECT * FROM spp WHERE id_spp='{$_GET['id_spp']}'");
-
 if (isset($_POST['btn_ubah'])) {
-    ubahData($_POST);
+    tambahData($_POST);
 }
-
 ?>
-<div class="container">
-    <div class="form-wrapper">
-        <div class="form-header">
-            <h1>Ubah Data SPP</h1>
+
+<div class="tambah-wrapper">
+    <form method="POST">
+        <h1>Ubah Data SPP</h1>
+        <div class="form-label">
+            <label for="tahun">Tahun</label>
+            <input type="text" name="tahun" id="tahun" placeholder="Masukan Tahun" autocomplete="off" required value="<?= $data['tahun'] ?>">
         </div>
-        <main>
-            <form method="POST">
-                <div class="form-label">
-                    <label for="tahun">Tahun</label>
-                    <input type="text" placeholder="Masukan Tahun" name="tahun" id="tahun" autocomplete="off" required value="<?= $data['tahun'] ?>">
-                </div>
-                <div class="form-label">
-                    <label for="nominal">Nominal</label>
-                    <input type="text" placeholder="Masukan nominal" name="nominal" id="nominal" autocomplete="off" required value="<?= $data['nominal'] ?>">
-                </div>
-                <div class="form-label button">
-                    <a href="?p=spp">Batal</a>
-                    <button type="submit" name="btn_ubah">Simpan</button>
-                </div>
-            </form>
-        </main>
-    </div>
+        <div class="form-label">
+            <label for="nominal">Nominal</label>
+            <input type="text" name="nominal" id="nominal" placeholder="Masukan Nominal" autocomplete="off" required value="<?= $data['nominal'] ?>">
+        </div>
+        <div class="form-label button" style="display: flex;">
+            <a href="?p=spp">Batal</a>
+            <button type="submit" name="btn_ubah">Simpan</button>
+        </div>
+    </form>
 </div>

@@ -1,11 +1,12 @@
 <?php
+
 // memulai session
 session_start();
+
 
 if (isset($_SESSION['id_petugas'])) {
     include './templates/header.php';
     if (isset($_GET['p'])) {
-        echo "<script>document.title='Pembayaran SPP | " . strtoupper($_GET['p']) . "'</script>";
         include './pages/' . $_GET['p'] . '/index.php';
     } else {
         include './pages/home/index.php';
@@ -14,7 +15,7 @@ if (isset($_SESSION['id_petugas'])) {
 } else {
     echo "
         <script>
-            alert('Anda belum login, Silahkan login terlebih dahulu !');
+            alert('Anda belum login, silahkan login terlebih dahulu !');
             window.location='login.php';
         </script>
     ";

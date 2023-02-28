@@ -13,3 +13,7 @@ body {
   --slate-700: #334155;
   --blue-600: #0284c7;
 }
+
+body {
+  background-color: var(--bg-primary);
+}

@@ -1,96 +1,85 @@
-@import "./navbar.css";
-
-body {
-  background-color: var(--bg-primary);
+@import "./variables.css";
+.tambah-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-div.container {
-  width: 100%;
-  margin-top: 8rem;
-}
-
-div.container > div.form-wrapper {
-  background-color: rgba(255, 255, 255, 0.7);
-  max-width: 45%;
-  margin: 0 auto;
-  box-shadow: 0 0 0.1rem var(--blue-800);
+.tambah-wrapper > form {
+  background-color: rgb(255, 255, 255, 0.7);
+  backdrop-filter: blur(2rem);
+  padding: 1rem 2rem;
+  width: 45%;
+  box-shadow: 0 0 0.1rem var(--blue-900);
   border-radius: 0.5rem;
-  padding: 1.5rem 2rem;
+  padding-inline: 3rem;
   box-sizing: border-box;
+  margin-top: 4rem;
 }
 
-div.container > div.form-wrapper > .form-header > h1 {
-  color: var(--blue-800);
+.tambah-wrapper > form > h1 {
   text-align: center;
-  font-size: 2.1rem;
-  margin: 0.5rem 0;
+  font-size: 2.2rem;
+  color: var(--blue-800);
+  margin-top: 0.6rem;
+  margin-bottom: 1rem;
 }
 
-div.container > div.form-wrapper > main > form {
-  padding: 0 2.1rem;
-  margin-top: 1.6rem;
-}
-
-div.container > div.form-wrapper > main > form > .form-label {
+.tambah-wrapper > form > .form-label {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  gap: 0.2rem;
   margin-bottom: 0.8rem;
 }
 
-div.container > div.form-wrapper > main > form > .form-label > label {
+.tambah-wrapper > form > .form-label > label {
   color: var(--blue-600);
-  font-size: 1.2rem;
-  margin-bottom: 0.1em;
+  font-size: 1rem;
 }
 
-div.container > div.form-wrapper > main > form > .form-label > input,
+.tambah-wrapper > form > .form-label > input,
 select {
-  background-color: var(--bg-primary);
   padding: 0.6rem 1rem;
-  font-size: 1rem;
-  border: none;
-  outline: none;
   border: 0.1rem solid var(--blue-800);
   border-radius: 0.5rem;
-  color: var(--text-slate-700);
+  outline: none;
+  color: var(--slate-700);
+  font-size: 0.95rem;
 }
 
-div.container
-  > div.form-wrapper
-  > main
-  > form
-  > .form-label
-  > input::placeholder {
-  color: rgba(2, 132, 199, 0.3);
-}
-
-div.container > div.form-wrapper > main > form > .button > a {
+.tambah-wrapper > form > .button > a,
+.tambah-wrapper > form > .button > button {
   display: inline-block;
+  width: 50%;
+  padding: 0.6rem 2rem;
+  cursor: pointer;
 }
 
-div.container > div.form-wrapper > main > form > .button {
+.tambah-wrapper > form > .button {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  flex-direction: row;
+  gap: 2rem;
   margin-top: 2rem;
 }
 
-div.container > div.form-wrapper > main > form > .button > a,
-div.container > div.form-wrapper > main > form > .button > button {
+.tambah-wrapper > form > .button > a {
   background-color: var(--bg-primary);
   border: 0.1rem solid var(--blue-600);
-  padding: 0.5em 5rem;
-  font-size: 1.2rem;
-  text-decoration: none;
   border-radius: 0.5rem;
-  color: var(--blue-600);
+  text-align: center;
+  font-size: 1rem;
+  text-decoration: none;
+  color: var(--blue-900);
 }
 
-div.container > div.form-wrapper > main > form > .button>button{
-  background-color: var(--blue-800);
+.tambah-wrapper > form > .button > button {
+  background-color: var(--blue-900);
   border: none;
+  border-radius: 0.5rem;
+  text-align: center;
+  font-size: 1rem;
+  text-decoration: none;
   color: #fff;
-  cursor: pointer;
 }

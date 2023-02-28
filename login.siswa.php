@@ -7,18 +7,17 @@ session_start();
 function loginCheck($post)
 {
 
-    $username = htmlspecialchars($post['username']);
-    $password = htmlspecialchars(md5($post['password']));
-    $level = htmlspecialchars($post['level']);
+    $nisn = htmlspecialchars($post['nisn']);
+    $nama_lengkap = htmlspecialchars($post['nama_lengkap']);
 
-    $sql = "SELECT * FROM petugas WHERE username='$username' AND password='$password' AND level='$level'";
+    $sql = "SELECT * FROM siswa WHERE nisn='$nisn' AND nama='$nama_lengkap'";
 
     $checkData = getData($sql);
 
     if (count($checkData) > 0) {
 
-        $_SESSION['id_petugas'] = $checkData[0]['id_petugas'];
-        $_SESSION['level'] = $checkData[0]['level'];
+        $_SESSION['id_petugas'] = $checkData[0]['nisn'];
+        $_SESSION['level'] = "siswa";
 
         echo "
             <script>
@@ -63,24 +62,16 @@ if (isset($_POST['btn_sigin'])) {
             <main>
                 <form method="POST">
                     <div class="form-input">
-                        <label for="username">Username</label>
-                        <input type="text" name="username" id="username" placeholder="Masukan Username" autocomplete="off" required>
+                        <label for="nisn">Nisn</label>
+                        <input type="text" name="nisn" id="nisn" placeholder="Masukan nisn" autocomplete="off" required>
                     </div>
                     <div class="form-input">
-                        <label for="password">Password</label>
-                        <input type="password" name="password" id="password" placeholder="Masukan Password" autocomplete="off" required>
-                    </div>
-                    <div class="form-input">
-                        <label for="level">level</label>
-                        <select name="level" id="level">
-                            <option value="null">-- Pilih Level --</option>
-                            <option value="admin">Admin</option>
-                            <option value="petugas">Petugas</option>
-                        </select>
+                        <label for="nama_lengkap">Nama Lengkap</label>
+                        <input type="text" name="nama_lengkap" id="nama_lengkap" placeholder="Masukan nama_lengkap" autocomplete="off" required>
                     </div>
                     <div class="form-input">
                         <button type="submit" name="btn_sigin">Sign In</button>
-                        <a href="login.siswa.php">Login sebagai siswa</a>
+                        <a href="login.php">Login sebagai petugas</a>
                     </div>
                 </form>
             </main>

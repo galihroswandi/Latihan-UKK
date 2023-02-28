@@ -11,11 +11,13 @@ function koneksi()
     $koneksi = mysqli_connect($host, $user, $pass, $db_name);
 
     if (!$koneksi) {
+        echo "Koneksi Gagal";
         return false;
     }
 
     return $koneksi;
 }
+
 
 function getData($sql)
 {
@@ -25,25 +27,25 @@ function getData($sql)
     $query = mysqli_query($koneksi, $sql);
 
     $data = [];
-    while ($result = mysqli_fetch_assoc($query)) {
+    while ($result = mysqli_fetch_array($query)) {
         $data[] = $result;
     }
 
     return $data;
 }
 
-function actionData($sql)
+function changeData($sql)
 {
 
     $koneksi = koneksi();
 
-    $query = mysqli_query($koneksi, $sql);
+    $query  = mysqli_query($koneksi, $sql);
 
     if (!$query) {
         return false;
+    } else {
+        return 'success';
     }
-
-    return "Ok";
 }
 
 

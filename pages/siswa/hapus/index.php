@@ -1,36 +1,31 @@
+<style>
+    nav {
+        display: none;
+    }
+</style>
 <?php
-require_once './functions.php';
+require './functions.php';
 
-function hapusData($id)
-{
+if (!isset($_GET['nisn'])) {
+    echo "<script>window.location='?p=siswa'</script>";
+} else {
 
-    $sql = "DELETE FROM siswa WHERE nisn = '$id'";
+    $sql = "DELETE FROM siswa WHERE nisn='{$_GET['nisn']}'";
 
-    $hapus = actionData($sql);
+    $hapusData = changeData($sql);
 
-    if (!$hapus) {
+    if (!$hapusData) {
         echo "
             <script>
-                alert('Data gagal dihapus !');
-                window.location='index.php?p=siswa';
+                alert('Data gagal dihapus !, Error Code : " . $hapusData . "');
             </script>
         ";
     } else {
         echo "
             <script>
                 alert('Data berhasil dihapus !');
-                window.location='index.php?p=siswa';
+                window.location='?p=siswa';
             </script>
         ";
     }
-}
-
-if (!isset($_GET['nisn'])) {
-    echo "
-        <script>
-            window.location='index.php?p=nisn';
-        </script>
-    ";
-} else {
-    hapusData($_GET['nisn']);
 }
